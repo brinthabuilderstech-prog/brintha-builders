@@ -1,0 +1,71 @@
+rules_version = '2';
+
+// ==========================================================
+// Brintha Builders — Recommended Firestore Security Rules
+// ==========================================================
+// HOW TO APPLY:
+// Firebase Console > Firestore Database > Rules tab > paste this
+// entire file, replacing what's there > Publish.
+//
+// WHY THIS MATTERS (the "security" issue):
+// Right now, if your rules are still in Firebase's default
+// "test mode" (allow read, write: if true), then ANYONE on the
+// internet can read every customer's name, phone, and email from
+// your quotes/messages/enquiries — not just the admin. These
+// rules fix that: the public can only ever ADD a new
+// quote/message/enquiry/review, never read or browse existing ones.
+// Only a signed-in admin (logged in via /admin/login.html) can
+// read or manage that data.
+//
+// This also likely fixes "review submit not working" if it was
+// failing due to a rules mismatch — reviews need public CREATE
+// access to the testimonials collection, which this grants.
+
+function isAdmin() {
+  return request.auth != null;
+}
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- Projects: public can view, only admin can add/edit/delete ----
+    match /projects/{projectId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ---- Testimonials: anyone can submit a review, but it starts
+    // unapproved. Public can only read APPROVED reviews. Only
+    // admin can approve/delete or see pending ones. ----
+    match /testimonials/{testimonialId} {
+      allow read: if resource.data.approved == true || isAdmin();
+      allow create: if request.resource.data.approved == false
+                    && request.resource.data.name is string
+                    && request.resource.data.message is string;
+      allow update, delete: if isAdmin();
+    }
+
+    // ---- Quote requests: public can submit, only admin can view/manage ----
+    match /quotes/{quoteId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // ---- Contact messages: public can submit, only admin can view/manage ----
+    match /messages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // ---- Project enquiries: public can submit, only admin can view/manage ----
+    match /projectEnquiries/{enquiryId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Deny everything else by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

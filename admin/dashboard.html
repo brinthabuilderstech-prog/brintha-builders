@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Brintha Builders Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/admin.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="admin-wrapper">
+
+<aside class="admin-sidebar">
+
+<div class="brand">
+<img src="../images/logo.jpg" alt="Logo">
+<span>Brintha Admin</span>
+</div>
+
+<nav class="admin-nav">
+<a href="dashboard.html" class="active"><i class="fas fa-gauge"></i> Overview</a>
+<a href="#projects-panel"><i class="fas fa-building"></i> Projects</a>
+<a href="#testimonials-panel"><i class="fas fa-star"></i> Testimonials</a>
+<a href="#quotes-panel"><i class="fas fa-file-invoice"></i> Quote Requests</a>
+<a href="#messages-panel"><i class="fas fa-envelope"></i> Messages</a>
+<a href="#enquiries-panel"><i class="fas fa-comments"></i> Project Enquiries</a>
+</nav>
+
+<button class="logout-btn" id="logoutBtn">
+<i class="fas fa-arrow-right-from-bracket"></i> Logout
+</button>
+
+</aside>
+
+<main class="admin-main">
+
+<div class="admin-topbar">
+<div>
+<h1>Dashboard</h1>
+<p id="welcomeMsg">Welcome back</p>
+</div>
+</div>
+
+<div class="admin-stats">
+<div class="admin-stat-card">
+<div class="num" id="statProjects">0</div>
+<div class="label">Projects</div>
+</div>
+<div class="admin-stat-card">
+<div class="num" id="statTestimonials">0</div>
+<div class="label">Pending Reviews</div>
+</div>
+<div class="admin-stat-card">
+<div class="num" id="statQuotes">0</div>
+<div class="label">Quote Requests</div>
+</div>
+<div class="admin-stat-card">
+<div class="num" id="statMessages">0</div>
+<div class="label">Contact Messages</div>
+</div>
+<div class="admin-stat-card">
+<div class="num" id="statEnquiries">0</div>
+<div class="label">Project Enquiries</div>
+</div>
+</div>
+
+<div class="admin-panel" id="projects-panel">
+<h3>Manage Projects</h3>
+
+<form id="projectForm" class="row g-3 mb-4">
+<input type="hidden" id="projectEditId" value="">
+<div class="col-md-6">
+<input type="text" id="pTitle" class="form-control" placeholder="Project Title" required>
+</div>
+<div class="col-md-6">
+<input type="text" id="pLocation" class="form-control" placeholder="Location" required>
+</div>
+<div class="col-md-4">
+<select id="pCategory" class="form-select" required>
+<option value="">Category</option>
+<option value="residential">Residential</option>
+<option value="commercial">Commercial</option>
+<option value="interior">Interior</option>
+<option value="renovation">Renovation</option>
+</select>
+</div>
+<div class="col-md-4">
+<select id="pStatus" class="form-select" required>
+<option value="">Status</option>
+<option value="Completed">Completed</option>
+<option value="Ongoing">Ongoing</option>
+<option value="Renovation">Renovation</option>
+</select>
+</div>
+<div class="col-md-4">
+<input type="text" id="pYear" class="form-control" placeholder="Year">
+</div>
+<div class="col-md-6">
+<input type="text" id="pArea" class="form-control" placeholder="Area (e.g. 3,200 sq.ft)">
+</div>
+<div class="col-md-6">
+<input type="text" id="pImage" class="form-control" placeholder="images/your-file.jpg">
+<small class="text-muted">Upload the file to the /images folder in the repo and redeploy first, then enter its path here (e.g. images/villa-1.jpg) or a full URL. This is the main cover photo shown at the top of the project page.</small>
+<div id="pImagePreviewWrap" style="display:none; margin-top:8px;">
+<img id="pImagePreview" src="" alt="Preview" style="max-width:140px; max-height:100px; border-radius:6px; object-fit:cover;">
+</div>
+</div>
+<div class="col-12">
+<textarea id="pDescription" class="form-control" rows="3" placeholder="Short description" required></textarea>
+</div>
+<div class="col-12">
+<label class="form-label text-white-50 small mb-1">Map Address (for the Google Map on the project page)</label>
+<input type="text" id="pMapLocation" class="form-control" placeholder="e.g. Thalavaipuram, Nagercoil, Tamil Nadu">
+<small class="text-muted">Leave blank to just use the Location field above for the map.</small>
+</div>
+<div class="col-12">
+<label class="form-label text-white-50 small mb-1">Gallery Images (shown as thumbnails on the project page)</label>
+<textarea id="pGallery" class="form-control" rows="2" placeholder="images/gallery-1.jpg&#10;images/gallery-2.jpg&#10;images/gallery-3.jpg"></textarea>
+<small class="text-muted">One image path per line. Leave blank to just reuse the cover photo.</small>
+</div>
+<div class="col-12">
+<label class="form-label text-white-50 small mb-1">Project Features</label>
+<textarea id="pFeatures" class="form-control" rows="3" placeholder="Modern Elevation&#10;Modular Kitchen&#10;Covered Car Parking"></textarea>
+<small class="text-muted">One feature per line. Leave blank to use the default feature list.</small>
+</div>
+<div class="col-12">
+<label class="form-label text-white-50 small mb-1">Specifications</label>
+<textarea id="pSpecs" class="form-control" rows="3" placeholder="RCC Framed Structure&#10;Premium Vitrified Flooring&#10;Teak Wood Main Door"></textarea>
+<small class="text-muted">One specification per line. Leave blank to use the default specification list.</small>
+</div>
+<div class="col-12 d-flex gap-2">
+<button type="submit" class="btn btn-warning" id="projectSubmitBtn">Add Project</button>
+<button type="button" class="btn btn-outline-light" id="projectCancelEdit" style="display:none;">Cancel Edit</button>
+</div>
+</form>
+
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Title</th>
+<th>Category</th>
+<th>Status</th>
+<th>Location</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="projectsBody">
+<tr class="empty-row"><td colspan="5">Loading...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="admin-panel" id="testimonials-panel">
+<h3>Manage Testimonials</h3>
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Rating</th>
+<th>Message</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="testimonialsBody">
+<tr class="empty-row"><td colspan="5">Loading...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="admin-panel" id="quotes-panel">
+<h3>Recent Quote Requests</h3>
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Project Type</th>
+<th>Budget</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody id="quotesBody">
+<tr class="empty-row"><td colspan="5">Loading...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="admin-panel" id="messages-panel">
+<h3>Recent Contact Messages</h3>
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody id="messagesBody">
+<tr class="empty-row"><td colspan="4">Loading...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="admin-panel" id="enquiries-panel">
+<h3>Recent Project Enquiries</h3>
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Project ID</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody id="enquiriesBody">
+<tr class="empty-row"><td colspan="4">Loading...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</main>
+
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
+
+</body>
+
+</html>

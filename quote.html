@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Request a Quote | Brintha Builders</title>
+
+<meta name="description"
+content="Request a free construction quotation from Brintha Builders.">
+
+<link rel="canonical" href="https://www.brinthabuilder.in/quote.html">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="stylesheet"
+href="css/responsive.css">
+
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand" href="index.html">
+
+<img src="images/logo.jpg" alt="Logo">
+
+<span>Brintha Builders</span>
+
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbar">
+
+<i class="fas fa-bars"></i>
+
+</button>
+
+<div class="collapse navbar-collapse"
+id="navbar">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+
+<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Banner -->
+
+<section class="page-banner quote-banner">
+
+<div class="overlay"></div>
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-8">
+
+<h6 class="section-subtitle">
+
+FREE ESTIMATE
+
+</h6>
+
+<h1>
+
+Request Your Construction Quote
+
+</h1>
+
+<p>
+
+Tell us about your project and we'll prepare a personalised quotation.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Quote Form -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-8">
+
+<form id="quoteForm"
+class="shadow rounded p-4 bg-white">
+
+<h3 class="mb-4">
+
+Project Information
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<input
+type="text"
+id="name"
+class="form-control"
+placeholder="Full Name"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<input
+type="tel"
+id="phone"
+class="form-control"
+placeholder="Phone Number"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<input
+type="email"
+id="email"
+class="form-control"
+placeholder="Email Address">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<input
+type="text"
+id="location"
+class="form-control"
+placeholder="Project Location"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<select
+id="projectType"
+class="form-select"
+required>
+
+<option value="">Project Type</option>
+
+<option>Residential House</option>
+
+<option>Villa</option>
+
+<option>Commercial Building</option>
+
+<option>Apartment</option>
+
+<option>Renovation</option>
+
+<option>Interior Design</option>
+
+<option>Industrial Building</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<select
+id="budget"
+class="form-select">
+
+<option value="">Estimated Budget</option>
+
+<option>Below ₹10 Lakhs</option>
+
+<option>₹10 - ₹25 Lakhs</option>
+
+<option>₹25 - ₹50 Lakhs</option>
+
+<option>₹50 Lakhs - ₹1 Crore</option>
+
+<option>Above ₹1 Crore</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<input
+type="number"
+id="area"
+class="form-control"
+placeholder="Construction Area (Sq.ft)">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<input
+type="date"
+id="startDate"
+class="form-control">
+
+</div>
+
+<div class="col-12 mb-3">
+
+<textarea
+id="description"
+rows="6"
+class="form-control"
+placeholder="Describe your project"
+required></textarea>
+
+</div>
+
+<div class="col-12">
+
+<button
+type="submit"
+class="btn btn-warning btn-lg">
+
+Submit Quote Request
+
+</button>
+
+</div>
+
+</div>
+
+<div
+id="quoteMessage"
+class="mt-3">
+
+</div>
+
+</form>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="service-card">
+
+<i class="fas fa-calculator"></i>
+
+<h3>
+
+Free Consultation
+
+</h3>
+
+<p>
+
+✔ Free Site Visit
+
+</p>
+
+<p>
+
+✔ Free Cost Estimate
+
+</p>
+
+<p>
+
+✔ Professional Advice
+
+</p>
+
+<p>
+
+✔ Transparent Pricing
+
+</p>
+
+<p>
+
+✔ No Hidden Charges
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================== WHY CHOOSE US ================== -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h6 class="section-subtitle">
+
+WHY BRINTHA BUILDERS
+
+</h6>
+
+<h2 class="section-title">
+
+Why Choose Our Team
+
+</h2>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-4 mb-4">
+
+<div class="service-card">
+
+<i class="fas fa-award"></i>
+
+<h4>Quality Construction</h4>
+
+<p>
+
+We use premium materials and follow industry standards to deliver durable and reliable buildings.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<div class="service-card">
+
+<i class="fas fa-users"></i>
+
+<h4>Experienced Team</h4>
+
+<p>
+
+Our engineers, architects and skilled workers ensure every project is completed professionally.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<div class="service-card">
+
+<i class="fas fa-clock"></i>
+
+<h4>On-Time Delivery</h4>
+
+<p>
+
+We focus on completing projects within the agreed schedule without compromising quality.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================== CONSTRUCTION PROCESS ================== -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h6 class="section-subtitle">
+
+OUR PROCESS
+
+</h6>
+
+<h2 class="section-title">
+
+How We Work
+
+</h2>
+
+</div>
+
+<div class="row text-center">
+
+<div class="col-md-3 mb-4">
+
+<div class="process-box">
+
+<i class="fas fa-comments"></i>
+
+<h5>Consultation</h5>
+
+<p>Discuss project requirements.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 mb-4">
+
+<div class="process-box">
+
+<i class="fas fa-pencil-ruler"></i>
+
+<h5>Planning</h5>
+
+<p>Design and estimate preparation.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 mb-4">
+
+<div class="process-box">
+
+<i class="fas fa-hard-hat"></i>
+
+<h5>Construction</h5>
+
+<p>Professional execution with quality control.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 mb-4">
+
+<div class="process-box">
+
+<i class="fas fa-key"></i>
+
+<h5>Handover</h5>
+
+<p>Timely delivery of your completed project.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================== CTA ================== -->
+
+<section id="cta" class="py-5 text-center">
+
+<div class="container">
+
+<h2>
+
+Ready to Build Your Dream Home?
+
+</h2>
+
+<p>
+
+Request a free quotation today and our team will contact you shortly.
+
+</p>
+
+<a href="contact.html"
+class="btn btn-warning btn-lg">
+
+Contact Us
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ================== FOOTER ================== -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<h3>Brintha Builders</h3>
+
+<p>
+
+Building Dreams with Quality & Trust.
+
+</p>
+
+</div>
+
+<div class="col-lg-4">
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="services.html">Services</a></li>
+
+<li><a href="projects.html">Projects</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div class="col-lg-4">
+
+<h4>Contact</h4>
+
+<p><i class="fas fa-phone"></i> +91 93455 06673, +91 94961 61941</p>
+
+<p><i class="fas fa-envelope"></i> Brinthabuilders0003@gmail.com</p>
+
+<p><i class="fas fa-location-dot"></i> Thalavaipuram, Nagercoil, Tamil Nadu</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="text-center">
+
+<p>
+
+© <span id="year"></span> Brintha Builders. All Rights Reserved.
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- WhatsApp -->
+
+<a href="https://wa.me/919345506673"
+class="whatsapp-btn"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<!-- Scroll Top -->
+
+<button id="scrollTop">
+
+<i class="fas fa-arrow-up"></i>
+
+</button>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- EmailJS (sends a notification email when the quote form is submitted) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Firebase Quote Form -->
+
+<script type="module" src="js/quote.js"></script>
+
+<!-- Main JavaScript -->
+
+<script src="js/main.js"></script>
+
+<script>
+
+AOS.init({
+    duration:1000,
+    once:true,
+    offset:100
+});
+
+</script>
+
+</body>
+
+</html>
