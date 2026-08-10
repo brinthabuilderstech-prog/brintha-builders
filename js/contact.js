@@ -1,10 +1,10 @@
-// ==========================================
+/ ==========================================
 // Brintha Builders - Contact Form
 // js/contact.js
 // ==========================================
-
+ 
 import { db, collection, addDoc, serverTimestamp } from "../firebase/firebase.js";
-
+ 
 // ==========================================
 // EmailJS setup — sends you an email whenever someone submits this form.
 // Reuses the same EmailJS account as the quote form.
@@ -13,18 +13,16 @@ import { db, collection, addDoc, serverTimestamp } from "../firebase/firebase.js
 const EMAILJS_SERVICE_ID = "service_koe0ag5";
 const EMAILJS_TEMPLATE_ID = "template_zeuljhb";
 const EMAILJS_PUBLIC_KEY = "lrmKQw3qGVVwAL11X";
-
-if (window.emailjs && EMAILJS_PUBLIC_KEY !== "lrmKQw3qGVVwAL11X") {
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-}
-
+ 
+emailjs.init(EMAILJS_PUBLIC_KEY);
+ 
 const contactForm = document.getElementById("contactForm");
 const contactStatus = document.getElementById("contactStatus");
-
+ 
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
+ 
     const submitBtn = contactForm.querySelector("button[type='submit']");
     const data = {
       name: document.getElementById("name").value.trim(),
@@ -34,18 +32,18 @@ if (contactForm) {
       createdAt: serverTimestamp(),
       status: "new",
     };
-
+ 
     contactStatus.textContent = "";
     contactStatus.className = "mt-3";
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending...";
     }
-
+ 
     try {
       await addDoc(collection(db, "messages"), data);
-
-      if (window.emailjs && EMAILJS_PUBLIC_KEY !== "lrmKQw3qGVVwAL11X") {
+ 
+      if (window.emailjs) {
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           from_name: data.name,
           from_email: data.email,
@@ -53,7 +51,7 @@ if (contactForm) {
           message: data.message,
         }).catch((err) => console.warn("EmailJS notification failed:", err));
       }
-
+ 
       contactStatus.classList.add("text-success");
       contactStatus.textContent = "Thanks! Your message has been sent. We'll get back to you soon.";
       contactForm.reset();
@@ -69,3 +67,4 @@ if (contactForm) {
     }
   });
 }
+ 
