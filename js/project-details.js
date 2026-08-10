@@ -85,11 +85,19 @@ function renderMedia(image, video) {
       const playPromise = mainVideo.play();
       if (playPromise) playPromise.catch(() => {}); // ignore autoplay-blocked errors
     }
-    if (mainImage) mainImage.style.display = "none";
+    if (mainImage) {
+      mainImage.style.display = "none";
+      mainImage.removeAttribute("src"); // stop the browser fetching the unused placeholder
+    }
   } else {
     if (mainImage) {
-      if (image) mainImage.src = image;
-      mainImage.style.display = "block";
+      if (image) {
+        mainImage.src = image;
+        mainImage.style.display = "block";
+      } else {
+        mainImage.removeAttribute("src"); // no cover image saved — don't fetch the static placeholder
+        mainImage.style.display = "none";
+      }
     }
     if (mainVideo) {
       mainVideo.removeAttribute("src");
@@ -109,7 +117,10 @@ function renderGallery(mainImage, gallery) {
   if (!wrap) return;
  
   const images = Array.isArray(gallery) && gallery.length ? gallery : [mainImage].filter(Boolean);
-  if (!images.length) return;
+  if (!images.length) {
+    wrap.innerHTML = ""; // no real images saved — clear the static placeholder thumbnails
+    return;
+  }
  
   wrap.innerHTML = images
     .map(
@@ -284,3 +295,4 @@ if (enquiryForm) {
 }
  
 loadProject();
+ 
