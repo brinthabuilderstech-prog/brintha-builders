@@ -284,8 +284,8 @@ if (enquiryForm) {
       // Fire-and-forget email alert — don't block the user if this fails.
       emailjs
         .send("service_koe0ag5", "template_zeuljhb", {
-          name: data.name,
-          email: data.email,
+          from_name: data.name,
+          from_email: data.email,
           phone: data.phone,
           message: data.message,
           project_id: projectId || "",
