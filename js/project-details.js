@@ -280,6 +280,18 @@ if (enquiryForm) {
  
     try {
       await addDoc(collection(db, "projectEnquiries"), data);
+ 
+      // Fire-and-forget email alert — don't block the user if this fails.
+      emailjs
+        .send("service_koe0ag5", "template_zeuljhb", {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          message: data.message,
+          project_id: projectId || "",
+        })
+        .catch((err) => console.error("Email alert failed:", err));
+ 
       enquiryForm.reset();
       alert("Thanks! Your enquiry has been sent. We'll be in touch soon.");
     } catch (error) {
