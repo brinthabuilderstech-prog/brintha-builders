@@ -1,447 +1,638 @@
-/*=========================================
-        RESPONSIVE CSS
-        Brintha Builders V2.0
-=========================================*/
+/* =========================================
+   BRINTHA BUILDERS V2.0
+   RESPONSIVE CSS
+   ========================================= */
 
-/* Large Laptop */
 
-@media(max-width:1200px){
+/* =========================================
+   LARGE LAPTOP
+   1200px and below
+   ========================================= */
 
-.container{
+@media (max-width: 1200px) {
 
-max-width:95%;
+    .container {
+        max-width: 95%;
+    }
 
-}
-
-#hero h1{
-
-font-size:52px;
-
-}
-
-}
-
-/* Laptop */
-
-@media(max-width:992px){
-
-section{
+    #hero h1 {
+        font-size: 52px;
+    }
 
-padding:80px 0;
-
-}
-
-.navbar{
-
-padding:15px 0;
-
 }
 
-.navbar-collapse{
 
-background:#0B1F3A;
-padding:20px;
-margin-top:15px;
-border-radius:15px;
+/* =========================================
+   LAPTOP / SMALL DESKTOP
+   992px and below
+   ========================================= */
 
-}
-
-.nav-link{
+@media (max-width: 992px) {
 
-margin:12px 0;
+    section {
+        padding: 80px 0;
+    }
 
-}
+    /* Navbar */
 
-.btn-warning{
+    .navbar {
+        padding: 15px 0;
+    }
 
-margin-top:15px;
+    .navbar-collapse {
+        background: #0B1F3A;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: 15px;
+    }
 
-}
+    .nav-link {
+        margin: 12px 0;
+    }
 
-#hero{
+    .btn-warning {
+        margin-top: 15px;
+    }
 
-text-align:center;
-padding-top:120px;
 
-}
+    /* Hero */
 
-#hero h1{
+    #hero {
+        text-align: center;
+        padding-top: 120px;
+    }
 
-font-size:46px;
+    #hero h1 {
+        font-size: 46px;
+    }
 
-}
+    #hero p {
+        font-size: 17px;
+    }
 
-#hero p{
+    .hero-buttons {
+        justify-content: center;
+    }
 
-font-size:17px;
+    .hero-image {
+        margin-top: 50px;
+        max-width: 450px;
+    }
 
-}
 
-.hero-buttons{
+    /* Section Titles */
 
-justify-content:center;
+    .section-title {
+        font-size: 36px;
+    }
 
-}
 
-.hero-image{
+    /* About / Why Us */
 
-margin-top:50px;
-max-width:450px;
+    #about img,
+    #why-us img {
+        margin-bottom: 40px;
+    }
 
 }
-
-.section-title{
-
-font-size:36px;
 
-}
 
-#about img,
-#why-us img{
+/* =========================================
+   TABLET
+   768px and below
+   ========================================= */
 
-margin-bottom:40px;
+@media (max-width: 768px) {
 
-}
+    section {
+        padding: 70px 0;
+    }
 
-}
 
-/* Tablet */
+    /* =====================================
+       HERO
+       ===================================== */
 
-@media(max-width:768px){
+    #hero {
+        min-height: 80vh;
+        padding: 120px 0 70px;
+        position: relative;
+        overflow: hidden;
+    }
 
-section{
+    #hero h1 {
+        font-size: 38px;
+        line-height: 1.15;
+    }
 
-padding:70px 0;
+    #hero h5 {
+        font-size: 18px;
+    }
 
-}
+    #hero p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
 
-#hero{
 
-min-height:auto;
-padding:130px 0 80px;
+    /* Hero Buttons */
 
-}
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
 
-#hero h1{
+    .hero-buttons .btn {
+        width: 220px;
+    }
 
-font-size:38px;
 
-}
+    /* Old Hero Side Image */
 
-#hero h5{
+    .hero-image {
+        display: none;
+    }
 
-font-size:18px;
 
-}
+    /* =====================================
+       HERO BACKGROUND VIDEO
+       ===================================== */
 
-#hero p{
+    .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        z-index: 0;
+    }
 
-font-size:16px;
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 1;
+    }
 
-}
+    #hero .hero-content {
+        position: relative;
+        z-index: 2;
+    }
 
-.hero-buttons{
 
-flex-direction:column;
-align-items:center;
+    /* =====================================
+       SECTION TITLES
+       ===================================== */
 
-}
+    .section-title {
+        font-size: 30px;
+        text-align: center;
+    }
 
-.hero-buttons .btn{
+    .section-subtitle {
+        display: block;
+        text-align: center;
+    }
 
-width:220px;
 
-}
+    /* =====================================
+       ABOUT
+       ===================================== */
 
-.hero-image{
+    #about {
+        text-align: center;
+    }
 
-max-width:350px;
+    .feature-item {
+        justify-content: center;
+        text-align: left;
+    }
 
-}
 
-.section-title{
+    /* =====================================
+       PROJECTS
+       ===================================== */
 
-font-size:30px;
+    .project-card img {
+        height: 220px;
+        object-fit: cover;
+    }
 
-text-align:center;
 
-}
+    /* =====================================
+       TEAM
+       ===================================== */
 
-.section-subtitle{
+    .team-card img {
+        height: 260px;
+        object-fit: cover;
+    }
 
-display:block;
-text-align:center;
 
-}
+    /* =====================================
+       CONTENT IMAGE
+       ===================================== */
 
-#about{
+    .content-photo {
+        height: 260px;
+        object-fit: cover;
+    }
 
-text-align:center;
 
-}
+    /* =====================================
+       PROJECT GALLERY
+       ===================================== */
 
-.feature-item{
+    #mainImage {
+        height: 280px;
+        object-fit: cover;
+    }
 
-justify-content:center;
-text-align:left;
+    .gallery-thumb {
+        height: 80px;
+        object-fit: cover;
+    }
 
-}
 
-.project-card img{
+    /* =====================================
+       TESTIMONIALS
+       ===================================== */
 
-height:220px;
+    .testimonial-card {
+        padding: 30px;
+    }
 
-}
 
-.team-card img{
+    /* =====================================
+       FOOTER
+       ===================================== */
 
-height:260px;
+    .footer {
+        text-align: center;
+    }
 
-}
+    .social-links {
+        justify-content: center;
+    }
 
-.content-photo{
 
-height:260px;
+    /* =====================================
+       PAGE BANNER
+       ===================================== */
 
-}
+    .page-banner {
+        min-height: 320px;
+        padding-top: 120px;
+    }
 
-#mainImage{
+    .page-banner h1 {
+        font-size: 34px;
+    }
 
-height:280px;
+    .page-banner p {
+        font-size: 16px;
+    }
 
 }
 
-.gallery-thumb{
 
-height:80px;
+/* =========================================
+   LARGE MOBILE
+   576px and below
+   ========================================= */
 
-}
+@media (max-width: 576px) {
 
-.testimonial-card{
+    /* =====================================
+       NAVBAR
+       ===================================== */
 
-padding:30px;
+    .navbar-brand span {
+        font-size: 20px;
+    }
 
-}
+    .navbar-brand img {
+        width: 42px;
+    }
 
-.footer{
 
-text-align:center;
+    /* =====================================
+       HERO
+       ===================================== */
 
-}
+    #hero {
+        min-height: 75vh;
+        padding: 110px 0 60px;
+    }
 
-.social-links{
+    #hero h1 {
+        font-size: 32px;
+        line-height: 1.15;
+    }
 
-justify-content:center;
+    #hero p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
 
-}
+    #hero h5 {
+        font-size: 17px;
+    }
 
-/* Hide hero side image on mobile/tablet - text-only hero looks cleaner on small screens */
-.hero-image{
 
-display:none;
+    /* Hero Video */
 
-}
+    .hero-video {
+        object-fit: cover;
+    }
 
-/* Hero background videos now play on mobile too (see note about file size below) */
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.58);
+    }
 
-}
 
-/* Large Mobile */
+    /* Hero Buttons */
 
-@media(max-width:576px){
+    .hero-buttons {
+        gap: 10px;
+    }
 
-.navbar-brand span{
+    .hero-buttons .btn {
+        width: 220px;
+    }
 
-font-size:20px;
 
-}
+    /* =====================================
+       SECTION TITLES
+       ===================================== */
 
-.navbar-brand img{
+    .section-title {
+        font-size: 28px;
+    }
 
-width:42px;
 
-}
+    /* =====================================
+       STAT CARDS
+       ===================================== */
 
-#hero h1{
+    .stat-card {
+        padding: 25px;
+    }
 
-font-size:32px;
+    .stat-card h2 {
+        font-size: 34px;
+    }
 
-}
 
-#hero p{
+    /* =====================================
+       SERVICE CARDS
+       ===================================== */
 
-font-size:15px;
+    .service-card {
+        padding: 30px 20px;
+    }
 
-}
 
-.hero-image{
+    /* =====================================
+       PROCESS
+       ===================================== */
 
-max-width:280px;
+    .process-box {
+        padding: 25px 15px;
+    }
 
-}
 
-.section-title{
+    /* =====================================
+       PROJECTS
+       ===================================== */
 
-font-size:28px;
+    .project-content {
+        padding: 20px;
+    }
 
-}
 
-.stat-card{
+    /* =====================================
+       TESTIMONIALS
+       ===================================== */
 
-padding:25px;
+    .testimonial-card {
+        padding: 25px;
+    }
 
-}
 
-.stat-card h2{
+    /* =====================================
+       CTA
+       ===================================== */
 
-font-size:34px;
+    #cta h2 {
+        font-size: 30px;
+    }
 
-}
 
-.service-card{
+    /* =====================================
+       FOOTER
+       ===================================== */
 
-padding:30px 20px;
+    .footer {
+        padding: 60px 0 20px;
+    }
 
 }
 
-.process-box{
 
-padding:25px 15px;
+/* =========================================
+   SMALL MOBILE
+   400px and below
+   ========================================= */
 
-}
+@media (max-width: 400px) {
 
-.project-content{
+    body {
+        font-size: 14px;
+    }
 
-padding:20px;
-
-}
 
-.testimonial-card{
+    /* =====================================
+       HERO
+       ===================================== */
 
-padding:25px;
+    #hero {
+        padding: 105px 0 55px;
+    }
 
-}
+    #hero h1 {
+        font-size: 28px;
+    }
 
-#cta h2{
+    #hero p {
+        font-size: 14px;
+    }
 
-font-size:30px;
+    #hero h5 {
+        font-size: 16px;
+    }
 
-}
 
-.footer{
+    /* Hero Buttons */
 
-padding:60px 0 20px;
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
 
-}
 
-}
+    /* =====================================
+       SECTION TITLES
+       ===================================== */
 
-/* Small Mobile */
+    .section-title {
+        font-size: 24px;
+    }
 
-@media(max-width:400px){
 
-#hero h1{
+    /* =====================================
+       STAT CARDS
+       ===================================== */
 
-font-size:28px;
+    .stat-card h2 {
+        font-size: 30px;
+    }
 
-}
 
-#hero p{
+    /* =====================================
+       PROJECTS
+       ===================================== */
 
-font-size:14px;
+    .project-card img {
+        height: 200px;
+    }
 
-}
 
-.section-title{
+    /* =====================================
+       WHATSAPP BUTTON
+       ===================================== */
 
-font-size:24px;
+    .whatsapp-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+    }
 
-}
 
-.hero-buttons .btn{
+    /* =====================================
+       SCROLL TOP
+       ===================================== */
 
-width:100%;
+    #scrollTop {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
 
 }
 
-.stat-card h2{
 
-font-size:30px;
+/* =========================================
+   ULTRA SMALL MOBILE
+   320px and below
+   ========================================= */
 
-}
+@media (max-width: 320px) {
 
-.project-card img{
+    body {
+        font-size: 14px;
+    }
 
-height:200px;
 
-}
+    /* =====================================
+       HERO
+       ===================================== */
 
-.whatsapp-btn{
+    #hero h1 {
+        font-size: 24px;
+    }
 
-width:55px;
-height:55px;
-font-size:24px;
+    #hero p {
+        font-size: 13px;
+    }
 
-}
 
-#scrollTop{
+    /* =====================================
+       NAVBAR
+       ===================================== */
 
-width:45px;
-height:45px;
-font-size:18px;
+    .navbar-brand span {
+        display: none;
+    }
 
-}
 
-}
+    /* =====================================
+       OLD HERO IMAGE
+       ===================================== */
 
-/* Ultra Small */
+    .hero-image {
+        max-width: 230px;
+    }
 
-@media(max-width:320px){
 
-body{
+    /* =====================================
+       SECTION TITLES
+       ===================================== */
 
-font-size:14px;
+    .section-title {
+        font-size: 22px;
+    }
 
-}
 
-#hero h1{
+    /* =====================================
+       HERO BUTTONS
+       ===================================== */
 
-font-size:24px;
+    .hero-buttons .btn {
+        max-width: 100%;
+    }
 
 }
 
-.navbar-brand span{
 
-display:none;
-
-}
+/* =========================================
+   HERO VIDEO PERFORMANCE
+   ========================================= */
 
-.hero-image{
+/*
+   The video is intentionally not hidden on mobile.
+   Make sure the MP4 is compressed for web use.
 
-max-width:230px;
+   Recommended:
+   - H.264
+   - 720p maximum
+   - No audio
+   - Around 4–8 MB
+   - autoplay
+   - muted
+   - loop
+   - playsinline
+*/
 
-}
 
-.section-title{
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
 
-font-size:22px;
+/* Reduce animation for users who prefer reduced motion */
 
-}
+@media (prefers-reduced-motion: reduce) {
 
-}
-@media (max-width:768px){
-
-.page-banner{
-    min-height:320px;
-    padding-top:120px;
-}
+    .hero-video {
+        display: none;
+    }
 
-.page-banner h1{
-    font-size:34px;
 }
 
-.page-banner p{
-    font-size:16px;
-}
 
-}
+/* =========================================
+   END RESPONSIVE CSS
+   ========================================= */
