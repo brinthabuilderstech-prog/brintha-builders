@@ -2,7 +2,7 @@
 // Brintha Builders - Admin Dashboard
 // admin/js/dashboard.js
 // ==========================================
-
+ 
 import {
   auth,
   db,
@@ -20,10 +20,10 @@ import {
   limit,
   serverTimestamp,
 } from "../../firebase/firebase.js";
-
+ 
 const welcomeMsg = document.getElementById("welcomeMsg");
 const logoutBtn = document.getElementById("logoutBtn");
-
+ 
 // Guard: only logged-in admins may view this page
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -35,14 +35,14 @@ onAuthStateChanged(auth, (user) => {
   loadProjects();
   loadTestimonials();
 });
-
+ 
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     await signOut(auth);
     window.location.href = "login.html";
   });
 }
-
+ 
 function escapeHtml(str) {
   if (str === undefined || str === null) return "";
   return String(str)
@@ -50,7 +50,7 @@ function escapeHtml(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
-
+ 
 async function loadCollection(name, limitCount = 20) {
   try {
     const q = query(collection(db, name), orderBy("createdAt", "desc"), limit(limitCount));
@@ -61,32 +61,32 @@ async function loadCollection(name, limitCount = 20) {
     return [];
   }
 }
-
+ 
 function renderRows(tbodyId, rows, colCount, rowBuilder) {
   const tbody = document.getElementById(tbodyId);
   if (!tbody) return;
-
+ 
   if (!rows.length) {
     tbody.innerHTML = `<tr class="empty-row"><td colspan="${colCount}">No records yet</td></tr>`;
     return;
   }
-
+ 
   tbody.innerHTML = rows.map(rowBuilder).join("");
 }
-
+ 
 // ---------- Overview: quotes / messages / enquiries ----------
-
+ 
 async function loadOverview() {
   const [quotes, messages, enquiries] = await Promise.all([
     loadCollection("quotes"),
     loadCollection("messages"),
     loadCollection("projectEnquiries"),
   ]);
-
+ 
   document.getElementById("statQuotes").textContent = quotes.length;
   document.getElementById("statMessages").textContent = messages.length;
   document.getElementById("statEnquiries").textContent = enquiries.length;
-
+ 
   renderRows("quotesBody", quotes, 5, (q) => `
     <tr>
       <td>${escapeHtml(q.name)}</td>
@@ -96,7 +96,7 @@ async function loadOverview() {
       <td>${escapeHtml(q.location)}</td>
     </tr>
   `);
-
+ 
   renderRows("messagesBody", messages, 4, (m) => `
     <tr>
       <td>${escapeHtml(m.name)}</td>
@@ -105,7 +105,7 @@ async function loadOverview() {
       <td>${escapeHtml(m.message)}</td>
     </tr>
   `);
-
+ 
   renderRows("enquiriesBody", enquiries, 4, (e) => `
     <tr>
       <td>${escapeHtml(e.name)}</td>
@@ -115,17 +115,18 @@ async function loadOverview() {
     </tr>
   `);
 }
-
+ 
 // ---------- Projects CRUD ----------
-
+ 
 const projectForm = document.getElementById("projectForm");
 const projectEditId = document.getElementById("projectEditId");
 const projectSubmitBtn = document.getElementById("projectSubmitBtn");
 const projectCancelEdit = document.getElementById("projectCancelEdit");
 const pImageInput = document.getElementById("pImage");
+const pVideoInput = document.getElementById("pVideo");
 const pImagePreviewWrap = document.getElementById("pImagePreviewWrap");
 const pImagePreview = document.getElementById("pImagePreview");
-
+ 
 // Turn a textarea (one item per line) into a clean array, and back again.
 function linesToArray(text) {
   return (text || "")
@@ -136,7 +137,7 @@ function linesToArray(text) {
 function arrayToLines(arr) {
   return Array.isArray(arr) ? arr.join("\n") : "";
 }
-
+ 
 function updateImagePreview() {
   const path = pImageInput.value.trim();
   if (!path) {
@@ -150,20 +151,20 @@ function updateImagePreview() {
   pImagePreview.src = isAbsolute ? path : `../${path}`;
   pImagePreviewWrap.style.display = "block";
 }
-
+ 
 if (pImageInput) {
   pImageInput.addEventListener("input", updateImagePreview);
   pImagePreview.addEventListener("error", () => {
     pImagePreviewWrap.style.display = "none";
   });
 }
-
+ 
 async function loadProjects() {
   const projects = await loadCollection("projects", 50);
   const withIds = await fetchProjectsWithIds();
-
+ 
   document.getElementById("statProjects").textContent = withIds.length;
-
+ 
   renderRows("projectsBody", withIds, 5, (p) => `
     <tr>
       <td>${escapeHtml(p.title)}</td>
@@ -176,7 +177,7 @@ async function loadProjects() {
       </td>
     </tr>
   `);
-
+ 
   document.querySelectorAll("[data-edit-project]").forEach((btn) => {
     btn.addEventListener("click", () => startEditProject(btn.dataset.editProject, withIds));
   });
@@ -184,7 +185,7 @@ async function loadProjects() {
     btn.addEventListener("click", () => deleteProject(btn.dataset.deleteProject));
   });
 }
-
+ 
 async function fetchProjectsWithIds() {
   try {
     const q = query(collection(db, "projects"), orderBy("createdAt", "desc"));
@@ -195,11 +196,11 @@ async function fetchProjectsWithIds() {
     return [];
   }
 }
-
+ 
 function startEditProject(id, projects) {
   const project = projects.find((p) => p.id === id);
   if (!project) return;
-
+ 
   projectEditId.value = id;
   document.getElementById("pTitle").value = project.title || "";
   document.getElementById("pLocation").value = project.location || "";
@@ -209,17 +210,18 @@ function startEditProject(id, projects) {
   document.getElementById("pYear").value = project.year || "";
   document.getElementById("pArea").value = project.area || "";
   document.getElementById("pImage").value = project.image || "";
+  document.getElementById("pVideo").value = project.video || "";
   document.getElementById("pDescription").value = project.description || "";
   document.getElementById("pGallery").value = arrayToLines(project.gallery);
   document.getElementById("pFeatures").value = arrayToLines(project.features);
   document.getElementById("pSpecs").value = arrayToLines(project.specs);
   updateImagePreview();
-
+ 
   projectSubmitBtn.textContent = "Update Project";
   projectCancelEdit.style.display = "inline-block";
   document.getElementById("projects-panel").scrollIntoView({ behavior: "smooth" });
 }
-
+ 
 function resetProjectForm() {
   projectForm.reset(); // also clears pGallery, pFeatures, pSpecs (they're inside projectForm)
   projectEditId.value = "";
@@ -227,15 +229,15 @@ function resetProjectForm() {
   projectCancelEdit.style.display = "none";
   updateImagePreview();
 }
-
+ 
 if (projectCancelEdit) {
   projectCancelEdit.addEventListener("click", resetProjectForm);
 }
-
+ 
 if (projectForm) {
   projectForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
+ 
     const data = {
       title: document.getElementById("pTitle").value.trim(),
       location: document.getElementById("pLocation").value.trim(),
@@ -245,14 +247,15 @@ if (projectForm) {
       year: document.getElementById("pYear").value.trim(),
       area: document.getElementById("pArea").value.trim(),
       image: document.getElementById("pImage").value.trim(),
+      video: document.getElementById("pVideo").value.trim(),
       description: document.getElementById("pDescription").value.trim(),
       gallery: linesToArray(document.getElementById("pGallery").value),
       features: linesToArray(document.getElementById("pFeatures").value),
       specs: linesToArray(document.getElementById("pSpecs").value),
     };
-
+ 
     projectSubmitBtn.disabled = true;
-
+ 
     try {
       if (projectEditId.value) {
         await updateDoc(doc(db, "projects", projectEditId.value), data);
@@ -270,7 +273,7 @@ if (projectForm) {
     }
   });
 }
-
+ 
 async function deleteProject(id) {
   if (!confirm("Delete this project? This cannot be undone.")) return;
   try {
@@ -281,9 +284,9 @@ async function deleteProject(id) {
     console.error("Delete project error:", error);
   }
 }
-
+ 
 // ---------- Testimonials moderation ----------
-
+ 
 async function loadTestimonials() {
   let items = [];
   try {
@@ -293,10 +296,10 @@ async function loadTestimonials() {
   } catch (error) {
     console.error("Failed to load testimonials:", error);
   }
-
+ 
   const pendingCount = items.filter((t) => !t.approved).length;
   document.getElementById("statTestimonials").textContent = pendingCount;
-
+ 
   renderRows("testimonialsBody", items, 5, (t) => `
     <tr>
       <td>${escapeHtml(t.name)}</td>
@@ -309,7 +312,7 @@ async function loadTestimonials() {
       </td>
     </tr>
   `);
-
+ 
   document.querySelectorAll("[data-approve]").forEach((btn) => {
     btn.addEventListener("click", () => approveTestimonial(btn.dataset.approve));
   });
@@ -317,7 +320,7 @@ async function loadTestimonials() {
     btn.addEventListener("click", () => deleteTestimonial(btn.dataset.deleteTestimonial));
   });
 }
-
+ 
 async function approveTestimonial(id) {
   try {
     await updateDoc(doc(db, "testimonials", id), { approved: true });
@@ -327,7 +330,7 @@ async function approveTestimonial(id) {
     console.error("Approve testimonial error:", error);
   }
 }
-
+ 
 async function deleteTestimonial(id) {
   if (!confirm("Delete this testimonial?")) return;
   try {
@@ -338,3 +341,4 @@ async function deleteTestimonial(id) {
     console.error("Delete testimonial error:", error);
   }
 }
+ 
