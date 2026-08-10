@@ -2,9 +2,9 @@
 // Brintha Builders - Quote Request Form
 // js/quote.js
 // ==========================================
-
+ 
 import { db, collection, addDoc, serverTimestamp } from "../firebase/firebase.js";
-
+ 
 // ==========================================
 // EmailJS setup — sends you an email whenever someone submits this form.
 // 1. Create a free account at https://www.emailjs.com
@@ -18,18 +18,16 @@ import { db, collection, addDoc, serverTimestamp } from "../firebase/firebase.js
 const EMAILJS_SERVICE_ID = "service_koe0ag5";
 const EMAILJS_TEMPLATE_ID = "template_zeuljhb";
 const EMAILJS_PUBLIC_KEY = "lrmKQw3qGVVwAL11X";
-
-if (window.emailjs && EMAILJS_PUBLIC_KEY !== "lrmKQw3qGVVwAL11X") {
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-}
-
+ 
+emailjs.init(EMAILJS_PUBLIC_KEY);
+ 
 const quoteForm = document.getElementById("quoteForm");
 const quoteMessage = document.getElementById("quoteMessage");
-
+ 
 if (quoteForm) {
   quoteForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
+ 
     const submitBtn = quoteForm.querySelector("button[type='submit']");
     const data = {
       name: document.getElementById("name").value.trim(),
@@ -44,18 +42,18 @@ if (quoteForm) {
       createdAt: serverTimestamp(),
       status: "new",
     };
-
+ 
     quoteMessage.textContent = "";
     quoteMessage.className = "mt-3";
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = "Submitting...";
     }
-
+ 
     try {
       await addDoc(collection(db, "quotes"), data);
-
-      if (window.emailjs && EMAILJS_PUBLIC_KEY !== "lrmKQw3qGVVwAL11X") {
+ 
+      if (window.emailjs) {
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           from_name: data.name,
           from_email: data.email,
@@ -68,7 +66,7 @@ if (quoteForm) {
           message: data.description,
         }).catch((err) => console.warn("EmailJS notification failed:", err));
       }
-
+ 
       quoteMessage.classList.add("text-success");
       quoteMessage.textContent = "Thanks! Your quote request has been received. We'll contact you shortly.";
       quoteForm.reset();
@@ -84,3 +82,4 @@ if (quoteForm) {
     }
   });
 }
+ 
