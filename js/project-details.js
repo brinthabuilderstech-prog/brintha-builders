@@ -80,6 +80,10 @@ function renderMedia(image, video) {
     if (mainVideo) {
       mainVideo.src = video;
       mainVideo.style.display = "block";
+      mainVideo.muted = true; // required by browsers for autoplay to work
+      mainVideo.load();
+      const playPromise = mainVideo.play();
+      if (playPromise) playPromise.catch(() => {}); // ignore autoplay-blocked errors
     }
     if (mainImage) mainImage.style.display = "none";
   } else {
@@ -280,4 +284,3 @@ if (enquiryForm) {
 }
  
 loadProject();
- 
