@@ -31,7 +31,7 @@ import {
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDd4ccNzuCA-gw0fBsoLNcWF6Xo84eep1A",
+  apiKey: "AIzaSyBHUx4NdpaVqjrztd6YkwHVw1IDyLG8NnY",
   authDomain: "brintha-tracker.firebaseapp.com",
   projectId: "brintha-tracker",
   storageBucket: "brintha-tracker.firebasestorage.app",
