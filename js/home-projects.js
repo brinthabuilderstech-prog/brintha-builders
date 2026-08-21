@@ -34,6 +34,13 @@ function buildCard(id, data, index) {
   return col;
 }
 
+// Lower number = shown first
+const STATUS_ORDER = {
+  Ongoing: 0,
+  Renovation: 1,
+  Completed: 2,
+};
+
 async function loadFeaturedProjects() {
   const grid = document.getElementById("featuredProjectsGrid");
   if (!grid) return;
@@ -44,9 +51,18 @@ async function loadFeaturedProjects() {
 
     if (snapshot.empty) return; // no projects added yet
 
+    const docs = snapshot.docs.slice();
+
+    // Ongoing projects first; within the same status, keep newest-first order
+    docs.sort((a, b) => {
+      const orderA = STATUS_ORDER[a.data().status] ?? 99;
+      const orderB = STATUS_ORDER[b.data().status] ?? 99;
+      return orderA - orderB;
+    });
+
     grid.innerHTML = "";
     let i = 0;
-    snapshot.forEach((docSnap) => {
+    docs.forEach((docSnap) => {
       grid.appendChild(buildCard(docSnap.id, docSnap.data(), i));
       i++;
     });
