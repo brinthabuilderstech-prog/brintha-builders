@@ -66,38 +66,134 @@ section{
 }
  
 /*================ LOADER =================*/
- 
+/*================ LOADER =================*/
+
 #loader{
- 
     position:fixed;
     inset:0;
+
     background:#fff;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     z-index:99999;
- 
 }
- 
+
+/* Loader wrapper */
+.loader-wrapper{
+    position:relative;
+
+    width:130px;
+    height:130px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Rotating gold ring */
+.loader-wrapper::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border-radius:50%;
+
+    border:3px solid transparent;
+    border-top-color:var(--secondary);
+    border-right-color:var(--secondary);
+
+    animation:loaderRotate 1.2s linear infinite;
+}
+
+/* Outer soft glow */
+.loader-wrapper::after{
+    content:"";
+
+    position:absolute;
+    inset:8px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    box-shadow:
+        0 0 15px rgba(212,175,55,.25),
+        0 0 30px rgba(212,175,55,.12);
+
+    animation:loaderGlow 1.5s ease-in-out infinite;
+}
+
+/* Logo */
 .loader-logo{
- 
-    width:100px;
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+    object-position:center;
+
+    background:#fff;
+
+    padding:5px;
+
+    position:relative;
+    z-index:2;
+
+    border:2px solid rgba(212,175,55,.7);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.15),
+        0 0 20px rgba(212,175,55,.25);
+
     animation:loaderPulse 1.3s ease-in-out infinite;
- 
 }
- 
+
+/* Logo pulse */
 @keyframes loaderPulse{
- 
-0%,100%{
-    transform:scale(1);
-    opacity:1;
+
+    0%,100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(.90);
+        opacity:.8;
+    }
+
 }
- 
-50%{
-    transform:scale(0.85);
-    opacity:0.6;
+
+/* Ring rotation */
+@keyframes loaderRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
 }
- 
+
+/* Glow animation */
+@keyframes loaderGlow{
+
+    0%,100%{
+        transform:scale(.95);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.05);
+        opacity:1;
+    }
+
 }
  
 /*================ NAVBAR =================*/
