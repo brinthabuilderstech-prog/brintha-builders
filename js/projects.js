@@ -38,12 +38,28 @@ function buildCard(id, data) {
   return col;
 }
 
+// Lower number = shown first
+const STATUS_ORDER = {
+  Ongoing: 0,
+  Renovation: 1,
+  Completed: 2,
+};
+
 async function loadDynamicProjects() {
   try {
     const q = query(collection(db, "projects"), orderBy("createdAt", "desc"));
     const snapshot = await getDocs(q);
 
-    snapshot.forEach((docSnap) => {
+    const docs = snapshot.docs.slice();
+
+    // Ongoing projects first; within the same status, keep newest-first order
+    docs.sort((a, b) => {
+      const orderA = STATUS_ORDER[a.data().status] ?? 99;
+      const orderB = STATUS_ORDER[b.data().status] ?? 99;
+      return orderA - orderB;
+    });
+
+    docs.forEach((docSnap) => {
       grid.appendChild(buildCard(docSnap.id, docSnap.data()));
     });
   } catch (error) {
