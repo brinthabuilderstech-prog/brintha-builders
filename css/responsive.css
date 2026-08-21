@@ -9,203 +9,181 @@
    1200px and below
    ========================================= */
 
-@media (max-width: 1200px) {
+@media (max-width:1200px){
 
-    .container {
-        max-width: 95%;
+    .container{
+        max-width:95%;
     }
 
-    #hero h1 {
-        font-size: 52px;
+    #hero h1{
+        font-size:52px;
     }
 
 }
 
 
 /* =========================================
-   LAPTOP / SMALL DESKTOP
+   LAPTOP / TABLET
    992px and below
    ========================================= */
 
-@media (max-width: 992px) {
+@media (max-width:991.98px){
 
-    section {
-        padding: 80px 0;
+    section{
+        padding:80px 0;
     }
 
 
     /* =====================================
        NAVBAR
-       FULLY TRANSPARENT
-       ===================================== */
+       FULL TRANSPARENT
+    ===================================== */
 
-    .navbar {
-        position: absolute;
+    .navbar{
+        position:absolute;
 
-        top: 0;
-        left: 0;
-        right: 0;
+        top:0;
+        left:0;
 
-        width: 100%;
+        width:100%;
 
-        padding: 15px 0;
+        background:transparent !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
 
-        background: transparent !important;
+        box-shadow:none !important;
+        border:none !important;
 
-        border: none !important;
+        padding:15px 0;
 
-        box-shadow: none !important;
+        z-index:9999;
+    }
 
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
+    .navbar.scrolled{
+        background:transparent !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
 
-        z-index: 9999;
+        box-shadow:none !important;
     }
 
 
-    /* =====================================
-       SCROLLED NAVBAR
-       STILL TRANSPARENT
-       ===================================== */
+    /* Mobile menu */
 
-    .navbar.scrolled {
-        background: transparent !important;
+    .navbar-collapse{
+        background:transparent !important;
 
-        border: none !important;
+        padding:15px 0;
 
-        box-shadow: none !important;
+        margin-top:10px;
 
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
+        border:none !important;
+        border-radius:0 !important;
+
+        box-shadow:none !important;
+
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+    }
+
+    .navbar-nav{
+        background:transparent !important;
+    }
+
+    .nav-item{
+        background:transparent !important;
+    }
+
+    .nav-link{
+        color:#fff !important;
+
+        margin:10px 0;
+
+        display:inline-block;
+    }
+
+    .nav-link:hover{
+        color:var(--secondary) !important;
+    }
+
+    .nav-link.active{
+        color:var(--secondary) !important;
     }
 
 
-    /* =====================================
-       MOBILE MENU
-       TRANSPARENT
-       ===================================== */
+    /* Navbar button */
 
-    .navbar-collapse {
-
-        background: transparent !important;
-
-        padding: 15px 20px 20px;
-
-        margin-top: 12px;
-
-        border-radius: 0;
-
-        border: none !important;
-
-        box-shadow: none !important;
-
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
+    .navbar .btn-warning{
+        margin-left:0;
+        margin-top:12px;
     }
 
 
-    /* =====================================
-       NAV LINKS
-       ===================================== */
+    /* Navbar toggler */
 
-    .nav-link {
+    .navbar-toggler{
+        border:1px solid rgba(255,255,255,.7) !important;
 
-        margin: 8px 0;
+        background:transparent !important;
 
-        color: #fff !important;
-
-        background: transparent !important;
+        box-shadow:none !important;
     }
 
-
-    .nav-link:hover {
-
-        color: var(--secondary) !important;
-
+    .navbar-toggler:focus{
+        box-shadow:none !important;
     }
 
-
-    .nav-link.active {
-
-        color: var(--secondary) !important;
-
-    }
-
-
-    /* =====================================
-       GET QUOTE
-       ===================================== */
-
-    .btn-warning {
-
-        margin-top: 15px;
-
+    .navbar-toggler-icon{
+        filter:brightness(0) invert(1);
     }
 
 
     /* =====================================
        HERO
-       ===================================== */
+    ===================================== */
 
-    #hero {
+    #hero{
+        text-align:center;
 
-        text-align: center;
-
-        padding-top: 120px;
-
+        padding-top:120px;
     }
 
-
-    #hero h1 {
-
-        font-size: 46px;
-
+    #hero h1{
+        font-size:46px;
     }
 
-
-    #hero p {
-
-        font-size: 17px;
-
+    #hero p{
+        font-size:17px;
     }
 
-
-    .hero-buttons {
-
-        justify-content: center;
-
+    .hero-buttons{
+        justify-content:center;
     }
 
-
-    .hero-image {
-
-        margin-top: 50px;
-
-        max-width: 450px;
-
+    .hero-image{
+        margin-top:50px;
+        max-width:450px;
+        margin-left:auto;
+        margin-right:auto;
     }
 
 
     /* =====================================
        SECTION TITLES
-       ===================================== */
+    ===================================== */
 
-    .section-title {
-
-        font-size: 36px;
-
+    .section-title{
+        font-size:36px;
     }
 
 
     /* =====================================
-       ABOUT / WHY US
-       ===================================== */
+       ABOUT
+    ===================================== */
 
     #about img,
-    #why-us img {
-
-        margin-bottom: 40px;
-
+    #why-us img{
+        margin-bottom:40px;
     }
 
 }
@@ -216,387 +194,230 @@
    768px and below
    ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
-    section {
-
-        padding: 70px 0;
-
-    }
-
-
-    /* =====================================
-       NAVBAR
-       ===================================== */
-
-    .navbar {
-
-        position: absolute;
-
-        top: 0;
-        left: 0;
-        right: 0;
-
-        width: 100%;
-
-        background: transparent !important;
-
-        border: none !important;
-
-        box-shadow: none !important;
-
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-
-        z-index: 9999;
-
-    }
-
-
-    .navbar.scrolled {
-
-        background: transparent !important;
-
-        border: none !important;
-
-        box-shadow: none !important;
-
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-
-    }
-
-
-    /* =====================================
-       MOBILE MENU
-       ===================================== */
-
-    .navbar-collapse {
-
-        background: transparent !important;
-
-        padding: 10px 15px 20px;
-
-        margin-top: 10px;
-
-        border: none !important;
-
-        border-radius: 0;
-
-        box-shadow: none !important;
-
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-    }
-
-
-    /* =====================================
-       NAV LINKS
-       ===================================== */
-
-    .nav-link {
-
-        color: #fff !important;
-
-        background: transparent !important;
-
-        margin: 5px 0;
-
-    }
-
-
-    .nav-link:hover {
-
-        color: var(--secondary) !important;
-
-    }
-
-
-    .nav-link.active {
-
-        color: var(--secondary) !important;
-
+    section{
+        padding:70px 0;
     }
 
 
     /* =====================================
        HERO
-       ===================================== */
+    ===================================== */
 
-    #hero {
+    #hero{
+        min-height:100vh;
 
-        min-height: 80vh;
+        padding:120px 0 70px;
 
-        padding: 120px 0 70px;
+        position:relative;
 
-        position: relative;
-
-        overflow: hidden;
-
+        overflow:hidden;
     }
 
+    #hero h1{
+        font-size:38px;
 
-    #hero h1 {
-
-        font-size: 38px;
-
-        line-height: 1.15;
-
+        line-height:1.15;
     }
 
-
-    #hero h5 {
-
-        font-size: 18px;
-
+    #hero h5{
+        font-size:18px;
     }
 
+    #hero p{
+        font-size:16px;
 
-    #hero p {
-
-        font-size: 16px;
-
-        line-height: 1.7;
-
+        line-height:1.7;
     }
 
 
     /* =====================================
        HERO BUTTONS
-       ===================================== */
+    ===================================== */
 
-    .hero-buttons {
+    .hero-buttons{
+        flex-direction:column;
 
-        flex-direction: column;
+        align-items:center;
 
-        align-items: center;
+        justify-content:center;
 
-        justify-content: center;
-
-        gap: 12px;
-
+        gap:12px;
     }
 
-
-    .hero-buttons .btn {
-
-        width: 220px;
-
+    .hero-buttons .btn{
+        width:220px;
     }
 
 
     /* =====================================
-       OLD HERO SIDE IMAGE
-       ===================================== */
+       OLD HERO IMAGE
+    ===================================== */
 
-    .hero-image {
-
-        display: none;
-
+    .hero-image{
+        display:none;
     }
 
 
     /* =====================================
-       HERO BACKGROUND VIDEO
-       ===================================== */
+       HERO VIDEO
+    ===================================== */
 
-    .hero-video {
+    .hero-video-bg,
+    .hero-video{
+        position:absolute;
 
-        position: absolute;
+        inset:0;
 
-        inset: 0;
+        width:100%;
+        height:100%;
 
-        width: 100%;
+        object-fit:cover;
 
-        height: 100%;
+        display:block;
 
-        object-fit: cover;
-
-        display: block;
-
-        z-index: 0;
-
+        z-index:0;
     }
 
+    .hero-overlay{
+        position:absolute;
 
-    .hero-overlay {
+        inset:0;
 
-        position: absolute;
+        background:rgba(0,0,0,.55);
 
-        inset: 0;
-
-        background: rgba(0, 0, 0, 0.55);
-
-        z-index: 1;
-
+        z-index:1;
     }
 
+    #hero .container,
+    #hero .hero-content{
+        position:relative;
 
-    #hero .hero-content {
-
-        position: relative;
-
-        z-index: 2;
-
+        z-index:2;
     }
 
 
     /* =====================================
        SECTION TITLES
-       ===================================== */
+    ===================================== */
 
-    .section-title {
+    .section-title{
+        font-size:30px;
 
-        font-size: 30px;
-
-        text-align: center;
-
+        text-align:center;
     }
 
+    .section-subtitle{
+        display:block;
 
-    .section-subtitle {
-
-        display: block;
-
-        text-align: center;
-
+        text-align:center;
     }
 
 
     /* =====================================
        ABOUT
-       ===================================== */
+    ===================================== */
 
-    #about {
-
-        text-align: center;
-
+    #about{
+        text-align:center;
     }
 
+    .feature-item{
+        justify-content:center;
 
-    .feature-item {
-
-        justify-content: center;
-
-        text-align: left;
-
+        text-align:left;
     }
 
 
     /* =====================================
        PROJECTS
-       ===================================== */
+    ===================================== */
 
-    .project-card img {
+    .project-card img{
+        height:220px;
 
-        height: 220px;
-
-        object-fit: cover;
-
+        object-fit:cover;
     }
 
 
     /* =====================================
        TEAM
-       ===================================== */
+    ===================================== */
 
-    .team-card img {
+    .team-card img{
+        height:260px;
 
-        height: 260px;
-
-        object-fit: cover;
-
+        object-fit:cover;
     }
 
 
     /* =====================================
        CONTENT IMAGE
-       ===================================== */
+    ===================================== */
 
-    .content-photo {
+    .content-photo{
+        height:260px;
 
-        height: 260px;
-
-        object-fit: cover;
-
+        object-fit:cover;
     }
 
 
     /* =====================================
        PROJECT GALLERY
-       ===================================== */
+    ===================================== */
 
-    #mainImage {
+    #mainImage{
+        height:280px;
 
-        height: 280px;
-
-        object-fit: cover;
-
+        object-fit:cover;
     }
 
+    .gallery-thumb{
+        height:80px;
 
-    .gallery-thumb {
-
-        height: 80px;
-
-        object-fit: cover;
-
+        object-fit:cover;
     }
 
 
     /* =====================================
        TESTIMONIALS
-       ===================================== */
+    ===================================== */
 
-    .testimonial-card {
-
-        padding: 30px;
-
+    .testimonial-card{
+        padding:30px;
     }
 
 
     /* =====================================
        FOOTER
-       ===================================== */
+    ===================================== */
 
-    .footer {
-
-        text-align: center;
-
+    .footer{
+        text-align:center;
     }
 
-
-    .social-links {
-
-        justify-content: center;
-
+    .social-links{
+        justify-content:center;
     }
 
 
     /* =====================================
        PAGE BANNER
-       ===================================== */
+    ===================================== */
 
-    .page-banner {
+    .page-banner{
+        min-height:320px;
 
-        min-height: 320px;
-
-        padding-top: 120px;
-
+        padding-top:120px;
     }
 
-
-    .page-banner h1 {
-
-        font-size: 34px;
-
+    .page-banner h1{
+        font-size:34px;
     }
 
-
-    .page-banner p {
-
-        font-size: 16px;
-
+    .page-banner p{
+        font-size:16px;
     }
 
 }
@@ -607,249 +428,165 @@
    576px and below
    ========================================= */
 
-@media (max-width: 576px) {
-
+@media (max-width:576px){
 
     /* =====================================
        NAVBAR
-       ===================================== */
+    ===================================== */
 
-    .navbar {
-
-        padding: 11px 0;
-
-        background: transparent !important;
-
+    .navbar{
+        padding:12px 0;
     }
 
-
-    .navbar.scrolled {
-
-        background: transparent !important;
-
+    .navbar-brand span{
+        font-size:20px;
     }
 
-
-    .navbar-brand span {
-
-        font-size: 20px;
-
+    .navbar-brand img{
+        width:42px;
+        height:42px;
     }
 
+    .navbar-collapse{
+        background:transparent !important;
 
-    .navbar-brand img {
+        padding:10px 0;
 
-        width: 42px;
+        margin-top:5px;
 
-        height: 42px;
+        border:none !important;
 
-        object-fit: contain;
-
-    }
-
-
-    /* =====================================
-       MOBILE MENU
-       ===================================== */
-
-    .navbar-collapse {
-
-        background: transparent !important;
-
-        padding: 8px 10px 18px;
-
-        margin-top: 10px;
-
-        border: none !important;
-
-        box-shadow: none !important;
-
-        backdrop-filter: none !important;
-
-        -webkit-backdrop-filter: none !important;
-
-    }
-
-
-    .nav-link {
-
-        color: #fff !important;
-
-        background: transparent !important;
-
-        font-size: 15px;
-
-        margin: 4px 0;
-
+        box-shadow:none !important;
     }
 
 
     /* =====================================
        HERO
-       ===================================== */
+    ===================================== */
 
-    #hero {
+    #hero{
+        min-height:100vh;
 
-        min-height: 75vh;
-
-        padding: 110px 0 60px;
-
+        padding:110px 0 60px;
     }
 
+    #hero h1{
+        font-size:32px;
 
-    #hero h1 {
-
-        font-size: 32px;
-
-        line-height: 1.15;
-
+        line-height:1.15;
     }
 
+    #hero p{
+        font-size:15px;
 
-    #hero p {
-
-        font-size: 15px;
-
-        line-height: 1.6;
-
+        line-height:1.6;
     }
 
-
-    #hero h5 {
-
-        font-size: 17px;
-
+    #hero h5{
+        font-size:17px;
     }
 
 
     /* =====================================
        HERO VIDEO
-       ===================================== */
+    ===================================== */
 
-    .hero-video {
-
-        object-fit: cover;
-
+    .hero-video-bg,
+    .hero-video{
+        object-fit:cover;
     }
 
-
-    .hero-overlay {
-
-        background: rgba(0, 0, 0, 0.58);
-
+    .hero-overlay{
+        background:rgba(0,0,0,.58);
     }
 
 
     /* =====================================
        HERO BUTTONS
-       ===================================== */
+    ===================================== */
 
-    .hero-buttons {
-
-        gap: 10px;
-
+    .hero-buttons{
+        gap:10px;
     }
 
-
-    .hero-buttons .btn {
-
-        width: 220px;
-
+    .hero-buttons .btn{
+        width:220px;
     }
 
 
     /* =====================================
        SECTION TITLES
-       ===================================== */
+    ===================================== */
 
-    .section-title {
-
-        font-size: 28px;
-
+    .section-title{
+        font-size:28px;
     }
 
 
     /* =====================================
        STAT CARDS
-       ===================================== */
+    ===================================== */
 
-    .stat-card {
-
-        padding: 25px;
-
+    .stat-card{
+        padding:25px;
     }
 
-
-    .stat-card h2 {
-
-        font-size: 34px;
-
+    .stat-card h2{
+        font-size:34px;
     }
 
 
     /* =====================================
        SERVICE CARDS
-       ===================================== */
+    ===================================== */
 
-    .service-card {
-
-        padding: 30px 20px;
-
+    .service-card{
+        padding:30px 20px;
     }
 
 
     /* =====================================
        PROCESS
-       ===================================== */
+    ===================================== */
 
-    .process-box {
-
-        padding: 25px 15px;
-
+    .process-box{
+        padding:25px 15px;
     }
 
 
     /* =====================================
        PROJECTS
-       ===================================== */
+    ===================================== */
 
-    .project-content {
-
-        padding: 20px;
-
+    .project-content{
+        padding:20px;
     }
 
 
     /* =====================================
        TESTIMONIALS
-       ===================================== */
+    ===================================== */
 
-    .testimonial-card {
-
-        padding: 25px;
-
+    .testimonial-card{
+        padding:25px;
     }
 
 
     /* =====================================
        CTA
-       ===================================== */
+    ===================================== */
 
-    #cta h2 {
-
-        font-size: 30px;
-
+    #cta h2{
+        font-size:30px;
     }
 
 
     /* =====================================
        FOOTER
-       ===================================== */
+    ===================================== */
 
-    .footer {
-
-        padding: 60px 0 20px;
-
+    .footer{
+        padding:60px 0 20px;
     }
 
 }
@@ -860,176 +597,111 @@
    400px and below
    ========================================= */
 
-@media (max-width: 400px) {
+@media (max-width:400px){
 
-    body {
-
-        font-size: 14px;
-
+    body{
+        font-size:14px;
     }
 
 
     /* =====================================
        NAVBAR
-       ===================================== */
+    ===================================== */
 
-    .navbar {
-
-        padding: 10px 0;
-
-        background: transparent !important;
-
+    .navbar{
+        padding:10px 0;
     }
 
-
-    .navbar.scrolled {
-
-        background: transparent !important;
-
+    .navbar-brand img{
+        width:38px;
+        height:38px;
     }
 
-
-    .navbar-brand img {
-
-        width: 38px;
-
-        height: 38px;
-
-    }
-
-
-    .navbar-brand span {
-
-        font-size: 18px;
-
-    }
-
-
-    /* =====================================
-       MOBILE MENU
-       ===================================== */
-
-    .navbar-collapse {
-
-        background: transparent !important;
-
-        padding: 8px 5px 15px;
-
-    }
-
-
-    .nav-link {
-
-        font-size: 14px;
-
+    .navbar-brand span{
+        font-size:18px;
     }
 
 
     /* =====================================
        HERO
-       ===================================== */
+    ===================================== */
 
-    #hero {
-
-        padding: 105px 0 55px;
-
+    #hero{
+        padding:105px 0 55px;
     }
 
-
-    #hero h1 {
-
-        font-size: 28px;
-
+    #hero h1{
+        font-size:28px;
     }
 
-
-    #hero p {
-
-        font-size: 14px;
-
+    #hero p{
+        font-size:14px;
     }
 
-
-    #hero h5 {
-
-        font-size: 16px;
-
+    #hero h5{
+        font-size:16px;
     }
 
 
     /* =====================================
        HERO BUTTONS
-       ===================================== */
+    ===================================== */
 
-    .hero-buttons .btn {
+    .hero-buttons .btn{
+        width:100%;
 
-        width: 100%;
-
-        max-width: 280px;
-
+        max-width:280px;
     }
 
 
     /* =====================================
        SECTION TITLES
-       ===================================== */
+    ===================================== */
 
-    .section-title {
-
-        font-size: 24px;
-
+    .section-title{
+        font-size:24px;
     }
 
 
     /* =====================================
        STAT CARDS
-       ===================================== */
+    ===================================== */
 
-    .stat-card h2 {
-
-        font-size: 30px;
-
+    .stat-card h2{
+        font-size:30px;
     }
 
 
     /* =====================================
        PROJECTS
-       ===================================== */
+    ===================================== */
 
-    .project-card img {
-
-        height: 200px;
-
+    .project-card img{
+        height:200px;
     }
 
 
     /* =====================================
-       WHATSAPP BUTTON
-       ===================================== */
+       WHATSAPP
+    ===================================== */
 
-    .whatsapp-btn {
+    .whatsapp-btn{
+        width:55px;
+        height:55px;
 
-        width: 55px;
-
-        height: 55px;
-
-        font-size: 24px;
-
+        font-size:24px;
     }
 
 
     /* =====================================
        SCROLL TOP
-       ===================================== */
+    ===================================== */
 
-    #scrollTop {
+    #scrollTop{
+        width:45px;
+        height:45px;
 
-        width: 45px;
-
-        height: 45px;
-
-        font-size: 18px;
-
+        font-size:18px;
     }
 
 }
@@ -1040,88 +712,59 @@
    320px and below
    ========================================= */
 
-@media (max-width: 320px) {
+@media (max-width:320px){
 
-    body {
-
-        font-size: 14px;
-
+    body{
+        font-size:14px;
     }
 
 
     /* =====================================
        NAVBAR
-       ===================================== */
+    ===================================== */
 
-    .navbar {
-
-        background: transparent !important;
-
-    }
-
-
-    .navbar.scrolled {
-
-        background: transparent !important;
-
-    }
-
-
-    .navbar-brand span {
-
-        display: none;
-
+    .navbar-brand span{
+        display:none;
     }
 
 
     /* =====================================
        HERO
-       ===================================== */
+    ===================================== */
 
-    #hero h1 {
-
-        font-size: 24px;
-
+    #hero h1{
+        font-size:24px;
     }
 
-
-    #hero p {
-
-        font-size: 13px;
-
+    #hero p{
+        font-size:13px;
     }
 
 
     /* =====================================
-       OLD HERO IMAGE
-       ===================================== */
+       HERO IMAGE
+    ===================================== */
 
-    .hero-image {
-
-        max-width: 230px;
-
+    .hero-image{
+        max-width:230px;
     }
 
 
     /* =====================================
        SECTION TITLES
-       ===================================== */
+    ===================================== */
 
-    .section-title {
-
-        font-size: 22px;
-
+    .section-title{
+        font-size:22px;
     }
 
 
     /* =====================================
        HERO BUTTONS
-       ===================================== */
+    ===================================== */
 
-    .hero-buttons .btn {
-
-        max-width: 100%;
-
+    .hero-buttons .btn{
+        max-width:100%;
     }
 
 }
@@ -1132,18 +775,16 @@
    ========================================= */
 
 /*
-   The video is intentionally not hidden on mobile.
-
    Recommended video:
 
-   - H.264
-   - 720p maximum
-   - No audio
-   - Around 4–8 MB
-   - autoplay
-   - muted
-   - loop
-   - playsinline
+   H.264
+   720p maximum
+   No audio
+   4–8 MB
+   autoplay
+   muted
+   loop
+   playsinline
 */
 
 
@@ -1151,43 +792,12 @@
    ACCESSIBILITY
    ========================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion:reduce){
 
-    .hero-video {
-
-        display: none;
-
+    .hero-video-bg,
+    .hero-video{
+        display:none;
     }
-
-}
-
-
-/* =========================================
-   FINAL NAVBAR TRANSPARENCY OVERRIDE
-   ========================================= */
-
-/*
-   This prevents Bootstrap or the old CSS
-   from adding a background to the navbar.
-*/
-
-.navbar,
-.navbar.scrolled,
-.navbar-collapse,
-.navbar-nav,
-.navbar-nav .nav-item,
-.navbar .nav-link,
-.navbar .navbar-brand {
-
-    background: transparent !important;
-
-    background-color: transparent !important;
-
-    box-shadow: none !important;
-
-    backdrop-filter: none !important;
-
-    -webkit-backdrop-filter: none !important;
 
 }
 
